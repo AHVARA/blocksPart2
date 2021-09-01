@@ -1,0 +1,56 @@
+const Engine = Matter.Engine;
+const World= Matter.World;
+const Bodies = Matter.Bodies;
+//const Constraint = Matter.Constraint;
+
+var engine, world;
+var box1,box;
+var ground
+//var boxGroup
+
+function setup()
+ {
+    createCanvas(displayWidth,displayHeight);
+    engine = Engine.create();
+    world = engine.world;
+
+    ground=createSprite(displayWidth/2, displayHeight-120, displayWidth, 20);
+    ground.shapeColor="peru";
+
+    box1=createSprite(displayWidth/2,displayHeight-160,150,55)
+    box1.shapeColor="blue"
+    //boxGroup=createGroup();
+  
+}
+
+function draw() 
+{
+  background("peachpuff"); 
+  Engine.update(engine);
+
+  box1.collide(ground)
+
+  
+  boxes();
+
+ /* if(keyDown("d")){
+    box.velocityX=0;
+    box.velocityY=10;
+  }*/
+
+  
+  drawSprites();
+}
+function boxes(){
+ //if(frameCount%10===0)
+  //{
+    box=new Box(0,400,150,55);
+    //box.shapeColor="red"
+    box.velocityX=10;
+    //boxGroup.add(box)
+    //boxGroup.y=boxGroup.y-100;
+    box.display()
+    
+  //}
+ 
+}
